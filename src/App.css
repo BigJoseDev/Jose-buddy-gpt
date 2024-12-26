@@ -1,0 +1,256 @@
+/* General Reset */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  font-size: 62.5%;
+}
+
+body {
+  background: rgb(3, 0, 31);
+  color: white;
+  font-family: 'Poppins', sans-serif;
+}
+
+.App {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column; /* For mobile, sidebar goes above main */
+}
+
+.sidebar {
+  flex: 3;
+  border-right: 1px solid rgb(100, 100, 100);
+  background: rgb(3, 0, 31);
+  position: absolute;
+  width: 80%; /* Sidebar width on mobile */
+  max-width: 30rem; /* Limit sidebar width */
+  height: 100%;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease-in-out;
+  z-index: 10;
+}
+
+.sidebar.open {
+  transform: translateX(0);
+}
+
+.main {
+  flex: 9;
+  width: 100%;
+  position: relative;
+  padding: 2rem;
+}
+
+.logo {
+  margin-right: 1rem;
+  margin-top: 30px;
+}
+
+.brand {
+  font-size: 2rem;
+  margin-top: 30px;
+}
+
+.upperSide {
+  padding: 2.5rem;
+  border-bottom: 1px solid rgba(100, 100, 100);
+}
+
+.upperSideTop {
+  display: flex;
+  align-items: center;
+  margin-bottom: 2.5rem;
+}
+
+.addBtn {
+  height: 2rem;
+  padding-right: 1rem;
+}
+
+.midBtn {
+  background: #07033d;
+  border: none;
+  color: white;
+  padding: 1.5rem;
+  font-size: 1.5rem;
+  width: 20rem; /* Reduced for mobile */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  margin-bottom: 3rem;
+  border-radius: 0.5rem;
+  cursor: pointer;
+}
+
+.query {
+  display: flex;
+  align-items: center;
+  background: transparent;
+  color: rgba(222, 222, 222, 1);
+  padding: 1.5rem;
+  width: 20rem; /* Adjusted for mobile */
+  margin: 1rem auto;
+  border-radius: 0.5rem;
+  border: 1px solid rgba(98, 98, 98, 1);
+  cursor: pointer;
+}
+
+.query > img {
+  margin-right: 2rem;
+  object-fit: cover;
+  height: 1.75rem;
+}
+
+.lowerSide {
+  padding: 2rem;
+}
+
+.listItems {
+  margin: 0.75rem;
+  display: flex;
+  align-items: center;
+  font-size: 1.3rem;
+}
+
+.listItemsImg {
+  margin: 1rem;
+  padding-right: 1rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin: 0;
+  padding: 1rem;
+}
+
+.chats {
+  overflow-y: scroll;
+  scroll-behavior: smooth;
+  width: 100%;
+  height: calc(100vh - 15rem); /* Adjusted for footer space */
+}
+
+.chat {
+  margin: 1rem;
+  padding: 2rem;
+  display: flex;
+  align-items: flex-start;
+  text-align: justify;
+  font-size: 1.4rem;
+}
+
+.chatimg {
+  object-fit: cover;
+  width: 3.5rem;
+  margin-right: 2rem;
+  border-radius: 0.5rem;
+}
+
+.bot {
+  background: rgba(28, 30, 58, 1);
+  width: fit-content;
+  margin-top: 50px;
+  border-radius: 0.5rem;
+}
+
+.chatFooter {
+  margin-top: auto;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 1rem;
+}
+
+.inp {
+  padding: 0.5rem;
+  background: rgba(28, 30, 58, 1);
+  display: flex;
+  align-items: center;
+  border-radius: 0.5rem;
+  width: 100%; /* Full width for mobile */
+  max-width: 68rem; /* Restrict width for larger screens */
+}
+
+.inp > input {
+  width: calc(100% - 3rem);
+  outline: none;
+  padding: 1.25rem;
+  color: white;
+}
+
+.inp > input, .send {
+  background: transparent;
+  border: none;
+}
+
+.chatFooter > p {
+  margin: 2rem 0;
+}
+
+.txt {
+  line-height: 2.4rem;
+  color: rgba(222, 222, 222, 1);
+}
+
+/* Hamburger Menu */
+.hamburger {
+  position: absolute;
+  top: 1.5rem;
+  left: 1.5rem;
+  z-index: 11;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+}
+
+.hamburger img {
+  width: 3rem;
+  margin-top: 2px;
+}
+
+/* Responsive Design */
+@media (min-width: 768px) {
+  .App {
+    flex-direction: row;
+  }
+
+  .sidebar {
+    position: static;
+    transform: translateX(0);
+    width: auto;
+    max-width: none;
+  }
+
+  .hamburger {
+    display: none;
+  }
+
+  .main {
+    margin-left: 0;
+  }
+
+  .midBtn, .query {
+    width: 25rem;
+  }
+  .txt{
+    line-height: 2.4rem;
+  }
+}
+@media (min-width: 1024px) {
+  .midBtn, .query {
+    width: 30rem;
+  }
+  .txt{
+    line-height: 2.4rem;
+    padding: 3px;
+  }
+}
