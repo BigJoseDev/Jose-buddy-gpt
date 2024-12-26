@@ -233,9 +233,7 @@ body {
   .hamburger {
     display: none;
   }
-  .inp{
-    width: fit-content;
-  }
+  
 
   .main {
     margin-left: 0;

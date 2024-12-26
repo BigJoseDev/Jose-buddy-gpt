@@ -23,8 +23,13 @@ const App = () => {
   ]);
 
   useEffect(() => {
-    msgEnd.current.scrollIntoView();
+    // Scroll to the top of the page when the component loads
+    window.scrollTo(0, 0);
+
+    // Scroll to the bottom when messages are updated
+    msgEnd.current?.scrollIntoView();
   }, [messages]);
+
 
   const handleSend = async () => {
     const text = input;
